@@ -1,6 +1,12 @@
 * {
   box-sizing: border-box;
 }
+body {
+  margin: 0 auto;
+}
+h3 {
+  text-align: center;
+}
 #header {
   background: blue;
   text-align: center;
@@ -12,10 +18,16 @@
 }
 .background-left {
   background: yellow;
-
+}
+.background-right {
+  background: lightseagreen;
 }
 .cell {
-  padding: 100px;
+  padding: 76px 96px;
+  text-align: center;
+}
+.stat-cell {
+  padding: 67px 96px;
   text-align: center;
 }
 #top-left-cell,
@@ -30,4 +42,16 @@
 #bottom-middle-cell,
 #middle-right-cell {
   background: lightpink;
+}
+#word-guess-area {
+  text-align: center;
+  background: lightgreen;
+}
+#game-content-1 {
+  width: 100%;
+}
+#footer {
+  background: blue;
+  height: 50px;
+  border-top: 12px solid red;
 }
