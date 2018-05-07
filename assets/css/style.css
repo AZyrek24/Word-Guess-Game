@@ -1,0 +1,33 @@
+* {
+  box-sizing: border-box;
+}
+#header {
+  background: blue;
+  text-align: center;
+}
+#instructions {
+  background: red;
+  text-align: center;
+  margin-top: 0;
+}
+.background-left {
+  background: yellow;
+
+}
+.cell {
+  padding: 100px;
+  text-align: center;
+}
+#top-left-cell,
+#bottom-left-cell,
+#center-cell,
+#top-right-cell,
+#bottom-right-cell {
+  background: lightblue;
+}
+#middle-left-cell,
+#top-middle-cell,
+#bottom-middle-cell,
+#middle-right-cell {
+  background: lightpink;
+}
