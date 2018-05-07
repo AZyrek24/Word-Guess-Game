@@ -6,10 +6,12 @@ body {
 }
 h3 {
   text-align: center;
+  color: white;
 }
 #header {
   background: blue;
   text-align: center;
+  color: white;
 }
 #instructions {
   background: red;
@@ -23,7 +25,7 @@ h3 {
   background: lightseagreen;
 }
 .cell {
-  padding: 76px 96px;
+  padding: 70px 96px;
   text-align: center;
 }
 .stat-cell {
@@ -44,7 +46,8 @@ h3 {
   background: lightpink;
 }
 #word-guess-area {
-  text-align: center;
+  height: 60px;
+  
   background: lightgreen;
 }
 #game-content-1 {
