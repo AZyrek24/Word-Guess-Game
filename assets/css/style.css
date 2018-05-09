@@ -25,11 +25,11 @@ h3 {
   background: lightseagreen;
 }
 .cell {
-  padding: 70px 96px;
+  padding: 70px 70px 70px 70px;
   text-align: center;
 }
 .stat-cell {
-  padding: 67px 96px;
+  padding: 67px 90px;
   text-align: center;
 }
 #top-left-cell,
@@ -45,10 +45,12 @@ h3 {
 #middle-right-cell {
   background: lightpink;
 }
-#word-guess-area {
+.word-area {
   height: 60px;
-  
+  width: 250px;  
   background: lightgreen;
+  text-align: center;
+  margin: auto;
 }
 #game-content-1 {
   width: 100%;
@@ -57,4 +59,8 @@ h3 {
   background: blue;
   height: 50px;
   border-top: 12px solid red;
+}
+.background-hangman {
+  width: 250px;
+  text-align: center;
 }

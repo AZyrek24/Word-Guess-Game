@@ -1,142 +1,22 @@
 <!DOCTYPE html>
-<html lang="en-us">
-
+<html>
 <head>
-  <meta charset="UTF-8">
-  <title>8-Bit Word Guess Game</title>  
-  <link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB"
-    crossorigin="anonymous">
+  <meta charset = "en-us">
+  <!-- <link rel="stylesheet" type="text/css" href="assets/css/reset.css"> -->
   <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 </head>
-
 <body>
-  <div class="container-fluid">
-    <div class="row" id="header">
-      <div class="col-md-12">
-        <h1>8-Bit</h1>
-        <h2>Word Guess Game</h2>
-      </div>
-    </div>
-    <div class="row" id="instructions">
-      <div class="col-md-12">
-        <h3>Press Any Key To Get Started</h3>
-      </div>
-    </div>
-    <div class="row" id="game-content-1">
-      <!-- Left Side of Screen-->
-      <div class "col-md-6">
-        <div class="row" id="hangman-container">
-          <div class="col-md-2 background-left"></div>
-          <div class="col-md-8 background-hangman">
-            <div class="row">
-              <div class="col-md-4">
-                <div class="row">
-                  <div class="col-md-12 cell" id="top-left-cell">
-                    <p>TL</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 cell" id="middle-left-cell">
-                    <p>ML</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 cell" id="bottom-left-cell">
-                    <p>BL</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="row">
-                  <div class="col-md-12 cell" id="top-middle-cell">
-                    <p>TM</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 cell" id="center-cell">
-                    <p>C</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 cell" id="bottom-middle-cell">
-                    <p>BM</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-4">
-                <div class="row">
-                  <div class="col-md-12 cell" id="top-right-cell">
-                    <p>TR</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 cell" id="middle-right-cell">
-                    <p>MR</p>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 cell" id="bottom-right-cell">
-                    <p>BR</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="row" id="word-guess-area">
-              <div class "col-md-12">
-                <h3 id="word-row">
-                  _ _ _ _ _ _ _ _ _ _ _ _ _ _
-                </h3>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 background-left"></div>
-        </div>
-      </div>
-      <!-- Right Side of Screen -->
-      <div class "col-md-6">
-        <div class="row" id="hangman-container">
-          <div class="col-md-2 background-right"></div>
-          <div class="col-md-8 background-stats">
-            <div class="row">
-              <div class="col-md-12">
-                <div class="row">
-                  <div class="col-md-12 stat-cell" id="win-cell">
-                    <h2>
-                      Wins:
-                      <span id="winCounter">00</span>
-                    </h2>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 stat-cell" id="remaining-guesses-cell">
-                    <h2>
-                      Number of Guesses Remaining:
-                      <span id="guessesRemaining">00</span>
-                    </h2>
-                  </div>
-                </div>
-                <div class="row">
-                  <div class="col-md-12 stat-cell" id="letters-guessed-cell">
-                    <h2>
-                      Letters Already Guessed:
-                      <span id="lettersGuessed">00</span>
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-2 background-right"></div>
-        </div>
+  <h1>8 Bit Word Guess Game</h1>
 
-      </div>
-    </div>
-  </div>
-  <footer id="footer"></footer>
-  <!-- Link to Javascript -->
-  <script src="assets/javascript/game.js"></script>
+  <h2>Press any key to start!!</h2>
 
+  <p id="wins">Wins: 0</p>
+  <p id="guessesRemaining">Number of Guesses Remaining: 6</p>
+  <p id="lettersGuessed">Letters Already Guessed:
+
+  </p>
+
+  <p id="wordDisplay">_ _ _ _ _ _ _ _ _ _</p>
+<script src="assets/javascript/game.js"></script>
 </body>
-
 </html>
