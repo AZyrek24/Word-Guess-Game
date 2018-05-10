@@ -1,7 +1,7 @@
 //Global Variables
 //================================================================================
 //Arrays
-var wordArray = ["mega_man", "super_mario_bros", "castlevania", "metroid", "bionic_commando"];
+var wordArray = ["mario", "samos", "yoshi", "luigi", "bowser"];
 var lettersInWord = [];
 var wordDisplay = [];
 var wrongLetters = [];
@@ -12,7 +12,7 @@ var numLettersInWord = 0;
 
 //Variables as Counters
 var wins = 0;
-var guessesRemaining = 6;
+var guessesRemaining = 5;
 
 
 
@@ -23,48 +23,55 @@ function gameStart() {
   lettersInWord = randomWord.split("");
   numLettersInWord = lettersInWord.length;
 
-  //Reset Counters when game restarts with new word
+  //Reset Counters When Game Restarts With New Word
   guessesRemaining = 6;
   wrongLetters = [];
   wordDisplay = [];
 
-  //Displays spaces and letters correctly guessed
+  //Display Correct Letters and Change Counters
   for (i = 0; i < numLettersInWord; i++) {
     wordDisplay.push("_");
     document.getElementById("wordDisplay").innerHTML = wordDisplay.join(" ");
+    document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
+    document.getElementById("wins").innerHTML = wins;
   }
 
-  //Testing/debug
-  console.log(randomWord);
-  console.log(lettersInWord);
-  console.log(numLettersInWord);
-  console.log(wordDisplay);
-  // for (var i = 0; i < numLettersInWord; i++) {    
-  //     wordDisplay.push(" ");
-  // }
+  
+  
+  //Display Correct Letters and Change Counters
+  // for (i = 0; i < numLettersInWord; i++) {
+    //   if (key === lettersInWord[i]) {
+      //     wordDisplay = wordDisplay.push(lettersInWord[i]);
+      //   } else {
+        //     document.getElementById("lettersGuessed").innerHTML = ("key");
+        //   }        
+         
+        //Testing/debug
+        console.log(randomWord);
+        console.log(lettersInWord);
+        console.log(numLettersInWord);
+        console.log(wordDisplay);
+}
 
-  
-  //   document.getElementById("wordToGuess").innerHTML = wordDisplay.join(" ");
-  
-  // document.onkeyup = function(event) {
-    //   var key = event.key;
-    //   for (var i = 0; i < numSpaces.length; i++) {
-      //     if 
-      //   }
-      // }
-      
-      
+function letterCheck (letter) {
+  for (i = 0; i < numLettersInWord; i++) {
+    if (letter !== lettersInWord[i]) {
+      document.getElementById("wrongLetters").innerHTML = (letter.toUpperCase() + " ");
+    }
+  }
 }
 //Main Process
 //================================================================================
 gameStart();
 
+//Get Key Input From Player
 
-
-//Test Object
-// var game {
-//   wordArray: ["mega man", "super mario bros", "castlevania", "metroid", "bionic commando"],
-//   lettersGuessed: [],
-//   lettersInWord: [],
-//   numSpaces: 
-// }
+document.onkeyup = function(event) {
+  var guessedLetter = event.key.toLowerCase();
+  letterCheck(guessedLetter);
+  
+  //Testing/debug
+  console.log(guessedLetter);
+}
+      
+      
