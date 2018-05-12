@@ -27,6 +27,7 @@ function gameStart() {
   guessesRemaining = 6;
   wrongLetters = [];
   wordDisplay = [];
+  finalDisplay = [];
 
   //Display Correct Letters and Change Counters
   for (i = 0; i < numLettersInWord; i++) {
@@ -39,7 +40,7 @@ function gameStart() {
   }
   var finalDisplay = [];
   for(j = 0; j < numLettersInWord; j++){
-    finalDisplay[j] = wordDisplay[j]
+    finalDisplay[j] = wordDisplay[j];
     if(finalDisplay[j] == " "){
       finalDisplay[j] =  "&nbsp;"
     }
@@ -47,12 +48,7 @@ function gameStart() {
   document.getElementById("wordDisplay").innerHTML = finalDisplay.join(" ");
   document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
   document.getElementById("wins").innerHTML = wins;
-
-  //Testing/debug
-  console.log(randomWord);
-  console.log(lettersInWord);
-  console.log(numLettersInWord);
-  console.log(wordDisplay);
+  document.getElementById("wrongLetters").innerHTML = wrongLetters;
 }
 //Checks Key Pressed to Letters in Random Word
 function letterCheck(letter) {
@@ -64,7 +60,7 @@ function letterCheck(letter) {
   }
   //Checks where in the word the letter is and displays it
   if(wordDisplay.indexOf(letter) >  -1 || wrongLetters.indexOf(letter) > -1){
-    //HEY ALREADY GUESSED STAHPs
+    //letter already guessed
   }
   else if (letterIsInWord) {
     for (i = 0; i < numLettersInWord; i++) {
@@ -75,10 +71,9 @@ function letterCheck(letter) {
   }
   //Letters that are not found
   else {
-    letter.toUpperCase();
     wrongLetters.push(letter);
     guessesRemaining--;
-    console.log(guessesRemaining);
+    document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
   }
 
 
@@ -94,6 +89,7 @@ function updateCounter() {
       finalDisplay[j] =  "&nbsp;"
     }
   }
+  
   document.getElementById("wordDisplay").innerHTML = finalDisplay.join(" ");
   document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
   if (wordDisplay.toString() == lettersInWord.toString()) {
