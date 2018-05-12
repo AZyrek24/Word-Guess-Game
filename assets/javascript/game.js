@@ -30,15 +30,15 @@ function gameStart() {
 
   //Display Correct Letters and Change Counters
   for (i = 0; i < numLettersInWord; i++) {
-    if (randomWord[i] === " ") {
+    if (lettersInWord[i] === " ") {
       wordDisplay.push("&nbsp;");
     } else {
       wordDisplay.push("_");
     }
-    document.getElementById("wordDisplay").innerHTML = wordDisplay.join(" ");
-    document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
-    document.getElementById("wins").innerHTML = wins;
   }
+  document.getElementById("wordDisplay").innerHTML = wordDisplay.join(" ");
+  document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
+  document.getElementById("wins").innerHTML = wins;
 
   //Testing/debug
   console.log(randomWord);
@@ -50,30 +50,28 @@ function gameStart() {
 function letterCheck(letter) {
   var letterIsInWord = false;
   for (i = 0; i < numLettersInWord; i++) {
-    if (randomWord[i] == letter) {
+    if (randomWord[i] === letter) {
       letterIsInWord = true;
-    }
-    else {
-      guessesRemaining--;
     }
   }
   //Checks where in the word the letter is and displays it
-
-  for (i = 0; i < numLettersInWord; i++) {
-    if (randomWord[i] === letter) {
-      wordDisplay[i] = letter;
-    }
-    //Letters that are not found
-    else {
-      letter.toUpperCase();
-      wrongLetters.push(letter.join(" "));
-      guessesRemaining--;
+  if (letterIsInWord) {
+    for (i = 0; i < numLettersInWord; i++) {
+      if (randomWord[i] === letter) {
+        wordDisplay[i] = letter;
+      }
+      //Letters that are not found
+      else {
+        letter.toUpperCase();
+        wrongLetters.push(letter.join(" "));
+        guessesRemaining--;
+        console.log(guessesRemaining);
+      }
     }
   }
-
 }
 //With each guess, checks if player won/lost, changes counters
-function counterUpdate() {
+function updateCounter() {
   document.getElementById("wins").innerHTML = wins;
   document.getElementById("wordDisplay").innerHTML = wordDisplay.join(" ");
   document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
@@ -96,6 +94,5 @@ gameStart();
 document.onkeyup = function (event) {
   guessedLetter = event.key.toLowerCase();
   letterCheck(guessedLetter);
-  counterUpdate();
+  updateCounter();
 }
-
