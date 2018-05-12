@@ -2,11 +2,13 @@
   box-sizing: border-box;
 }
 body {
-  margin: 0 auto;
+  margin: auto;
+  text-align: center;
 }
 h3 {
   text-align: center;
   color: white;
+  background: green;
 }
 #header {
   background: blue;

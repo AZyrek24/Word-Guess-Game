@@ -1,7 +1,7 @@
 //Global Variables
 //================================================================================
 //Arrays
-var wordArray = ["mario", "samos", "yoshi", "luigi", "bowser"];
+var wordArray = ["super mario bros", "metroid", "castlevania", "contra", "punch out", "the legend of zelda", "mega man", "final fantasy", "kung fu", "ninja gaiden"];
 var lettersInWord = [];
 var wordDisplay = [];
 var wrongLetters = [];
@@ -9,10 +9,10 @@ var wrongLetters = [];
 //Variables to store data
 var randomWord = "";
 var numLettersInWord = 0;
-
+var guessedLetter = "";
 //Variables as Counters
 var wins = 0;
-var guessesRemaining = 5;
+var guessesRemaining = 6;
 
 
 
@@ -30,35 +30,62 @@ function gameStart() {
 
   //Display Correct Letters and Change Counters
   for (i = 0; i < numLettersInWord; i++) {
-    wordDisplay.push("_");
+    if (randomWord[i] === " ") {
+      wordDisplay.push("&nbsp;");
+    } else {
+      wordDisplay.push("_");
+    }
     document.getElementById("wordDisplay").innerHTML = wordDisplay.join(" ");
     document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
     document.getElementById("wins").innerHTML = wins;
   }
 
-  
-  
-  //Display Correct Letters and Change Counters
-  // for (i = 0; i < numLettersInWord; i++) {
-    //   if (key === lettersInWord[i]) {
-      //     wordDisplay = wordDisplay.push(lettersInWord[i]);
-      //   } else {
-        //     document.getElementById("lettersGuessed").innerHTML = ("key");
-        //   }        
-         
-        //Testing/debug
-        console.log(randomWord);
-        console.log(lettersInWord);
-        console.log(numLettersInWord);
-        console.log(wordDisplay);
+  //Testing/debug
+  console.log(randomWord);
+  console.log(lettersInWord);
+  console.log(numLettersInWord);
+  console.log(wordDisplay);
 }
-
-function letterCheck (letter) {
+//Checks Key Pressed to Letters in Random Word
+function letterCheck(letter) {
+  var letterIsInWord = false;
   for (i = 0; i < numLettersInWord; i++) {
-    if (letter !== lettersInWord[i]) {
-      document.getElementById("wrongLetters").innerHTML = (letter.toUpperCase() + " ");
+    if (randomWord[i] == letter) {
+      letterIsInWord = true;
+    }
+    else {
+      guessesRemaining--;
     }
   }
+  //Checks where in the word the letter is and displays it
+
+  for (i = 0; i < numLettersInWord; i++) {
+    if (randomWord[i] === letter) {
+      wordDisplay[i] = letter;
+    }
+    //Letters that are not found
+    else {
+      letter.toUpperCase();
+      wrongLetters.push(letter.join(" "));
+      guessesRemaining--;
+    }
+  }
+
+}
+//With each guess, checks if player won/lost, changes counters
+function counterUpdate() {
+  document.getElementById("wins").innerHTML = wins;
+  document.getElementById("wordDisplay").innerHTML = wordDisplay.join(" ");
+  document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
+  if (wordDisplay.toString() == lettersInWord.toString()) {
+    wins++;
+    gameStart();
+  }
+  else if (guessesRemaining = 0) {
+    alert("Try Again!");
+    gameStart();
+  }
+
 }
 //Main Process
 //================================================================================
@@ -66,12 +93,9 @@ gameStart();
 
 //Get Key Input From Player
 
-document.onkeyup = function(event) {
-  var guessedLetter = event.key.toLowerCase();
+document.onkeyup = function (event) {
+  guessedLetter = event.key.toLowerCase();
   letterCheck(guessedLetter);
-  
-  //Testing/debug
-  console.log(guessedLetter);
+  counterUpdate();
 }
-      
-      
+
