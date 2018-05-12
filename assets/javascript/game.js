@@ -60,7 +60,7 @@ function letterCheck(letter) {
   }
   //Checks where in the word the letter is and displays it
   if(wordDisplay.indexOf(letter) >  -1 || wrongLetters.indexOf(letter) > -1){
-    //letter already guessed
+    //Letter already pressed
   }
   else if (letterIsInWord) {
     for (i = 0; i < numLettersInWord; i++) {
