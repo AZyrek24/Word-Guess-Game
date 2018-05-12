@@ -31,12 +31,20 @@ function gameStart() {
   //Display Correct Letters and Change Counters
   for (i = 0; i < numLettersInWord; i++) {
     if (lettersInWord[i] === " ") {
-      wordDisplay.push("&nbsp;");
+      wordDisplay.push(" ");
+
     } else {
       wordDisplay.push("_");
     }
   }
-  document.getElementById("wordDisplay").innerHTML = wordDisplay.join(" ");
+  var finalDisplay = [];
+  for(j = 0; j < numLettersInWord; j++){
+    finalDisplay[j] = wordDisplay[j]
+    if(finalDisplay[j] == " "){
+      finalDisplay[j] =  "&nbsp;"
+    }
+  }
+  document.getElementById("wordDisplay").innerHTML = finalDisplay.join(" ");
   document.getElementById("guessesRemaining").innerHTML = guessesRemaining;
   document.getElementById("wins").innerHTML = wins;
 
@@ -55,31 +63,44 @@ function letterCheck(letter) {
     }
   }
   //Checks where in the word the letter is and displays it
-  if (letterIsInWord) {
+  if(wordDisplay.indexOf(letter) >  -1 || wrongLetters.indexOf(letter) > -1){
+    //HEY ALREADY GUESSED STAHPs
+  }
+  else if (letterIsInWord) {
     for (i = 0; i < numLettersInWord; i++) {
       if (randomWord[i] === letter) {
         wordDisplay[i] = letter;
       }
-      //Letters that are not found
-      else {
-        letter.toUpperCase();
-        wrongLetters.push(letter.join(" "));
-        guessesRemaining--;
-        console.log(guessesRemaining);
-      }
     }
   }
+  //Letters that are not found
+  else {
+    letter.toUpperCase();
+    wrongLetters.push(letter);
+    guessesRemaining--;
+    console.log(guessesRemaining);
+  }
+
+
+
 }
 //With each guess, checks if player won/lost, changes counters
 function updateCounter() {
   document.getElementById("wins").innerHTML = wins;
-  document.getElementById("wordDisplay").innerHTML = wordDisplay.join(" ");
+  var finalDisplay = [];
+  for(j = 0; j < numLettersInWord; j++){
+    finalDisplay[j] = wordDisplay[j]
+    if(finalDisplay[j] == " "){
+      finalDisplay[j] =  "&nbsp;"
+    }
+  }
+  document.getElementById("wordDisplay").innerHTML = finalDisplay.join(" ");
   document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
   if (wordDisplay.toString() == lettersInWord.toString()) {
     wins++;
     gameStart();
   }
-  else if (guessesRemaining = 0) {
+  else if (guessesRemaining == 0) {
     alert("Try Again!");
     gameStart();
   }
@@ -93,6 +114,8 @@ gameStart();
 
 document.onkeyup = function (event) {
   guessedLetter = event.key.toLowerCase();
-  letterCheck(guessedLetter);
-  updateCounter();
+  if (event.which <= 90 && event.which >= 48) {
+    letterCheck(guessedLetter);
+    updateCounter();
+  }
 }
