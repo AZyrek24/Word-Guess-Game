@@ -1,7 +1,7 @@
 //Global Variables
 //================================================================================
 //Arrays
-var wordArray = ["super mario bros", "metroid", "castlevania", "contra", "punch out", "the legend of zelda", "mega man", "final fantasy", "kung fu", "ninja gaiden"];
+var wordArray = ["super mario bros", "metroid", "castlevania", "contra", "punch out", "the legend of zelda", "mega man", "final fantasy", "kung fu", "ninja gaiden", "Rad Racer", "Excitebike", "Kid Icarus", "Double Dragon", "Gradius", "Ice Climber"];
 var lettersInWord = [];
 var wordDisplay = [];
 var wrongLetters = [];
