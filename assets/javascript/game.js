@@ -1,7 +1,7 @@
 //Global Variables
 //================================================================================
 //Arrays
-var wordArray = ["super mario bros", "metroid", "castlevania", "contra", "punch out", "the legend of zelda", "mega man", "final fantasy", "kung fu", "ninja gaiden", "Rad Racer", "Excitebike", "Kid Icarus", "Double Dragon", "Gradius", "Ice Climber"];
+var wordArray = ["super mario bros", "metroid", "castlevania", "contra", "punch out", "the legend of zelda", "mega man", "final fantasy", "kung fu", "ninja gaiden", "rad racer", "excitebike", "kid icarus", "double dragon", "gradius", "ice climber"];
 var lettersInWord = [];
 var wordDisplay = [];
 var wrongLetters = [];
@@ -93,6 +93,7 @@ function updateCounter() {
   document.getElementById("wordDisplay").innerHTML = finalDisplay.join(" ");
   document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
   if (wordDisplay.toString() == lettersInWord.toString()) {
+    alert(randomWord.toUpperCase() + " is correct! NICE WIN!")
     wins++;
     gameStart();
   }
