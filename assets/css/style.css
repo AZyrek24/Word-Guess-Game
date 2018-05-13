@@ -6,11 +6,11 @@
   src: url(8-Bit\ Madness.ttf);
 }
 body {
-  text-align: center;
-  font-family: EightbitFont;
   background-image: url("../images/mario-background.jpg");
   background-size: 100%;
   color: white;
+  font-family: EightbitFont;
+  text-align: center;
 }
 h2 {
   font-size: 50px;
@@ -27,8 +27,4 @@ p {
   margin: 30px 0;
 }
 
-#footer {
-  background: blue;
-  height: 50px;
-  border-top: 12px solid red;
-}
+
