@@ -39,10 +39,10 @@ function gameStart() {
     }
   }
   var finalDisplay = [];
-  for(j = 0; j < numLettersInWord; j++){
+  for (j = 0; j < numLettersInWord; j++) {
     finalDisplay[j] = wordDisplay[j];
-    if(finalDisplay[j] == " "){
-      finalDisplay[j] =  "&nbsp;"
+    if (finalDisplay[j] == " ") {
+      finalDisplay[j] = "&nbsp;"
     }
   }
   document.getElementById("wordDisplay").innerHTML = finalDisplay.join(" ");
@@ -59,7 +59,7 @@ function letterCheck(letter) {
     }
   }
   //Checks where in the word the letter is and displays it
-  if(wordDisplay.indexOf(letter) >  -1 || wrongLetters.indexOf(letter) > -1){
+  if (wordDisplay.indexOf(letter) > -1 || wrongLetters.indexOf(letter) > -1) {
     //Letter already pressed
   }
   else if (letterIsInWord) {
@@ -83,13 +83,13 @@ function letterCheck(letter) {
 function updateCounter() {
   document.getElementById("wins").innerHTML = wins;
   var finalDisplay = [];
-  for(j = 0; j < numLettersInWord; j++){
+  for (j = 0; j < numLettersInWord; j++) {
     finalDisplay[j] = wordDisplay[j]
-    if(finalDisplay[j] == " "){
-      finalDisplay[j] =  "&nbsp;"
+    if (finalDisplay[j] == " ") {
+      finalDisplay[j] = "&nbsp;"
     }
   }
-  
+
   document.getElementById("wordDisplay").innerHTML = finalDisplay.join(" ");
   document.getElementById("wrongLetters").innerHTML = wrongLetters.join(" ");
   if (wordDisplay.toString() == lettersInWord.toString()) {
